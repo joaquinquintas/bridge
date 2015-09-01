@@ -124,22 +124,28 @@ public class BridgeSpringConfig {
     @Bean(name = "awsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials awsCredentials(BridgeConfig bridgeConfig) {
-        return new BasicAWSCredentials(bridgeConfig.getProperty("aws.key"),
-                bridgeConfig.getProperty("aws.secret.key"));
+    	String key = bridgeConfig.getProperty("aws.key").replce("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key").replce("___");
+        return new BasicAWSCredentials(key,secret
+                );
     }
 
     @Bean(name = "s3UploadCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3UploadCredentials(BridgeConfig bridgeConfig) {
-        return new BasicAWSCredentials(bridgeConfig.getProperty("aws.key.upload"),
-                bridgeConfig.getProperty("aws.secret.key.upload"));
+    	String key = bridgeConfig.getProperty("aws.key.upload").replce("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload").replce("___");
+        return new BasicAWSCredentials(key,secret
+                );
     }
 
     @Bean(name = "s3CmsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3CmsCredentials(BridgeConfig bridgeConfig) {
-        return new BasicAWSCredentials(bridgeConfig.getProperty("aws.key.upload.cms"),
-                bridgeConfig.getProperty("aws.secret.key.upload.cms"));
+    	String key = bridgeConfig.getProperty("aws.key.upload.cms").replce("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload.cms").replce("___");
+        return new BasicAWSCredentials(key, secret
+                );
     }
 
     @Bean(name = "dynamoDbClient")
@@ -191,8 +197,10 @@ public class BridgeSpringConfig {
     @Bean(name = "s3ConsentsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3ConsentsCredentials(BridgeConfig bridgeConfig) {
-        return new BasicAWSCredentials(bridgeConfig.getProperty("aws.key.consents"),
-                bridgeConfig.getProperty("aws.secret.key.consents"));
+    	String key = bridgeConfig.getProperty("aws.key.consents").replace("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.consents").replace("___");
+        return new BasicAWSCredentials(key, secret
+                );
     }
 
     @Bean(name = "s3ConsentsClient")
