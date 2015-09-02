@@ -124,8 +124,8 @@ public class BridgeSpringConfig {
     @Bean(name = "awsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials awsCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key").replce("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key").replce("___");
+    	String key = bridgeConfig.getProperty("aws.key").replace("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key").replace("___");
         return new BasicAWSCredentials(key,secret
                 );
     }
@@ -133,8 +133,8 @@ public class BridgeSpringConfig {
     @Bean(name = "s3UploadCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3UploadCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key.upload").replce("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key.upload").replce("___");
+    	String key = bridgeConfig.getProperty("aws.key.upload").replace("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload").replace("___");
         return new BasicAWSCredentials(key,secret
                 );
     }
@@ -142,8 +142,8 @@ public class BridgeSpringConfig {
     @Bean(name = "s3CmsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3CmsCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key.upload.cms").replce("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key.upload.cms").replce("___");
+    	String key = bridgeConfig.getProperty("aws.key.upload.cms").replace("___");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload.cms").replace("___");
         return new BasicAWSCredentials(key, secret
                 );
     }
