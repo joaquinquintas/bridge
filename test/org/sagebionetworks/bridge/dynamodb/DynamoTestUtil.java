@@ -27,8 +27,8 @@ public class DynamoTestUtil {
         BridgeConfig config = BridgeConfigFactory.getConfig();
         String awsKey = config.getProperty("aws.key");
         String secretKey = config.getProperty("aws.secret.key");
-        key = key.replace("___");
-    	secret = secret.replace("___");
+        key = key.replace("___", "");
+    	secret = secret.replace("___", "");
         DYNAMO = new AmazonDynamoDBClient(new BasicAWSCredentials(awsKey,
                 secretKey));
     }

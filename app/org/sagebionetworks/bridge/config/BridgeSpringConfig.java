@@ -127,8 +127,8 @@ public class BridgeSpringConfig {
     	String key = bridgeConfig.getProperty("aws.key");
     	
     	String secret = bridgeConfig.getProperty("aws.secret.key");
-    	key = key.replace("___");
-    	secret = secret.replace("___");
+    	key = key.replace("___", "");
+    	secret = secret.replace("___", "");
         return new BasicAWSCredentials(key,secret
                 );
     }
@@ -136,10 +136,10 @@ public class BridgeSpringConfig {
     @Bean(name = "s3UploadCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3UploadCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key.upload").replace("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key.upload").replace("___");
-    	key = key.replace("___");
-    	secret = secret.replace("___");
+    	String key = bridgeConfig.getProperty("aws.key.upload");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload");
+    	key = key.replace("___", "");
+    	secret = secret.replace("___", "");
         return new BasicAWSCredentials(key,secret
                 );
     }
@@ -147,8 +147,10 @@ public class BridgeSpringConfig {
     @Bean(name = "s3CmsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3CmsCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key.upload.cms").replace("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key.upload.cms").replace("___");
+    	String key = bridgeConfig.getProperty("aws.key.upload.cms");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.upload.cms");
+    	key = key.replace("___", "");
+    	secret = secret.replace("___", "");
         return new BasicAWSCredentials(key, secret
                 );
     }
@@ -202,8 +204,10 @@ public class BridgeSpringConfig {
     @Bean(name = "s3ConsentsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials s3ConsentsCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key.consents").replace("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key.consents").replace("___");
+    	String key = bridgeConfig.getProperty("aws.key.consents");
+    	String secret = bridgeConfig.getProperty("aws.secret.key.consents");
+    	key = key.replace("___", "");
+    	secret = secret.replace("___", "");
         return new BasicAWSCredentials(key, secret
                 );
     }
