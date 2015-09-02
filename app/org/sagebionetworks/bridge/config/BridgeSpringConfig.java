@@ -124,8 +124,11 @@ public class BridgeSpringConfig {
     @Bean(name = "awsCredentials")
     @Resource(name = "bridgeConfig")
     public BasicAWSCredentials awsCredentials(BridgeConfig bridgeConfig) {
-    	String key = bridgeConfig.getProperty("aws.key").replace("___");
-    	String secret = bridgeConfig.getProperty("aws.secret.key").replace("___");
+    	String key = bridgeConfig.getProperty("aws.key");
+    	
+    	String secret = bridgeConfig.getProperty("aws.secret.key");
+    	key = key.replace("___");
+    	secret = secret.replace("___");
         return new BasicAWSCredentials(key,secret
                 );
     }
@@ -135,6 +138,8 @@ public class BridgeSpringConfig {
     public BasicAWSCredentials s3UploadCredentials(BridgeConfig bridgeConfig) {
     	String key = bridgeConfig.getProperty("aws.key.upload").replace("___");
     	String secret = bridgeConfig.getProperty("aws.secret.key.upload").replace("___");
+    	key = key.replace("___");
+    	secret = secret.replace("___");
         return new BasicAWSCredentials(key,secret
                 );
     }
