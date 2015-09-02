@@ -69,8 +69,8 @@ public class DynamoInitializer {
     static {
         String awsKey = CONFIG.getProperty("aws.key");
         String secretKey = CONFIG.getProperty("aws.secret.key");
-        key = awsKey.replace("___", "");
-    	secret = secretKey.replace("___", "");
+        awsKey = awsKey.replace("___", "");
+        secretKey = secretKey.replace("___", "");
         DYNAMO = new AmazonDynamoDBClient(new BasicAWSCredentials(awsKey, secretKey));
     }
 
